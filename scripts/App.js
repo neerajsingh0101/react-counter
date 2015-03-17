@@ -1,9 +1,25 @@
-import React from 'react';
+var React = require('react');
 
-export default class App extends React.Component {
-  render() {
+var App = React.createClass({
+
+  getInitialState: () => {
+    return {
+      count: 0
+    }
+  },
+
+  incrementCounter: function() {
+    this.setState({ count: this.state.count + 1 });
+  },
+
+  render: function () {
     return (
-      <h1>Hello, world.</h1>
-    );
+      <div>
+        <h1>Count: {this.state.count}</h1>
+        <button type="button" onClick={this.incrementCounter}>Increment Counter</button>
+      </div>
+    )
   }
-}
+});
+
+module.exports = App;
